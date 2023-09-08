@@ -139,12 +139,13 @@ article > p {
 }
 
 .moreinfo summary{
-  /* background-color: aliceblue; */
   margin-top: 1em;
   outline: none;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .bar summary:hover{
   box-shadow:0 0 30px 2px #ffff;
+  background-color:rgb(255, 246, 236) 40% ;
   margin-top: 1em;
   max-width: 40%;
   cursor:grab;
@@ -152,8 +153,9 @@ article > p {
 }
 
 
+
 #info summary{
-font-family: Arial, Helvetica, sans-serif;
+
 padding: 1rem;
 margin:0.4rem;
 outline: none;
