@@ -40,7 +40,8 @@ article {
   box-shadow:1px 10px 100px 90px rgba(79, 112, 156, 0.28);
   border-radius:1rem;
  
-  transition:0.5s;
+  
+  /transition-timing-function:cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
   
 }
 
@@ -57,10 +58,12 @@ article {
   /* flex-direction:column; */
 transform: scale(1.3);
 height: 1000px;
+padding: 30vw;
 }
 .scroll article{
 scroll-snap-align: center;
 scroll-margin-block-start:center;
+transition:2s;
 
 }
 
@@ -256,12 +259,13 @@ p {
 .on:target{
   /* display:grid; */
   /* transform: translateY(60vh); */
-  transition: 0.5s;
+  /transition: 0.5s;
 }
 .under:target{
   /* display:grid; */
   /* transform: translateY(-60vh); */
-  transition: 0,5s;
+  /transition: 0,1s;
+  /transition-timing-function:cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
 }
 
 /* @keyframes move{
