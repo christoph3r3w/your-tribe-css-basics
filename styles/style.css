@@ -2,35 +2,36 @@
   box-sizing:border-box;
 }
 html {
-  scroll-behavior:auto;
-  scroll-snap-type: mandatory ;
+  background-color: rgb(1, 3, 5,0.99);
+  scroll-snap-type:y mandatory ;
 }
 
 body {
    
-  background-color: rgb(1, 3, 5);
-  height:150vh;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+  height:500px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  padding: 90px;
-  padding-top:10rem;
+  /* padding: 90px; */
+  margin-top:10rem;
   padding-bottom:auto;
   color:#10214e;
   /* padding-top: 10vh; */
   /* padding-bottom: 10vh; */
-  
+ 
+ 
 }
 
 article {
-  display:flex;
-  flex-direction:column;
-  width:50vw;
+  /* display:flex;
+  flex-direction:column; */
+  width:100%;
   max-width: 20em;
   min-width:20em;
-  height: 60vh;
+  height: 500px;
   padding: 1em;
   text-align: center;
   /* align-items:center; */
@@ -38,64 +39,92 @@ article {
   background: rgb(249,241,234,.9) ;
   box-shadow:1px 10px 100px 90px rgba(79, 112, 156, 0.28);
   border-radius:1rem;
-  position: relative;
-  transition:1s;
+ 
   
+  /transition-timing-function:cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
   
 }
+
+.scroll{
+  display:grid;
+  overflow-y:scroll;
+  overflow: hidden;
+  grid-column: auto;
+  border-radius: 1rem;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+  /* width:100%; */
+  justify-items: center;
+  /* flex-direction:column; */
+transform: scale(1.3);
+height: 1000px;
+padding: 30vw;
+}
+.scroll article{
+scroll-snap-align: center;
+scroll-margin-block-start:center;
+transition:2s;
+
+}
+
+  
 /* the middle article */
 .middle{
-  
+  /* height: 60vh; */
+  position: relative;
+  top:0;
 
-  /* transform: translateY(1em); */
+  
 }
 
 /* the top article */
 .on{
-  display:none;
+  display:grid;
   position: relative;
   order:-1;
-  height: 60vh;
+  /* height: 60vh; */
   width: 60vw;
   min-width:20em;
   /* margin-top:auto; */
   background: linear-gradient(0deg, rgba(206, 172, 97, 0.499) 100%, rgb(249,241,234) 20%);
   box-shadow:-10px 10px 100px 90px rgba(255, 230, 4, 0.04);
   /* align-content: center; */
-  transition:1s;
-  
+  /* transition:1s; */
+ 
 }
 
 
-img{
+.on img{
   width: 100%;
   height:max-content;
   padding:0.1px;
   border-radius:1em;
-  
+  object-fit: fill;
+
 }
 /* the bottom article */
 .under{
-  display: none;
+  display: grid;
   position: relative;
-  height: 60vh;
   width: 60vw;
   background: linear-gradient(0deg, rgb(201, 150, 46,0.91) 100%,rgb(249,241,234) 100%);
-  margin-bottom:auto;
-  transition: 1s;
   box-shadow:100px 100px 1000px 0px rgba(255, 0, 13, 0.189);
+  /* transition: 1s; */
 }
 
-
+/* box of information in article under */
 .aboutSelf{
-  text-align: left;
+  text-align:start;
   font-size: 1.5rem;
+  width:120px;
+ 
+  
 }
 
 
 .info{
   /* display:block; */
-  align-items:self-end;
+  align-items:self;
   position: absolute;
   border-radius:20em;
   background-color: rgb(120, 140, 167,0.8);
@@ -115,18 +144,20 @@ img{
 /* button down */
 .down{
   flex-flow: wrap;
-  margin-top:65px ;
-  transform: translateY(350px);
-  width: 90%;
-  min-height: 36px;
-  max-height: 14px;
+  position:absolute;
+  margin-bottom:65px ;
+  transform: translateY(-3px);
+  width: 100%;
+  /* min-height: 36px;
+  max-height: 14px; */
   font-size: 1.5rem;
+  left:0;
 }
 /* button main */
 .baibek{
   justify-content: center;
   width: 50%;
-  height: 3em;
+  height: 5em;
   /* border: solid black; */
   margin-left: 25%;
   
@@ -137,9 +168,8 @@ img{
   font-size: 1.3rem;
 }
 
-
+/* for the chris text */
 header {
-  
   flex-direction:column;
   justify-content:center;
   align-items:self-start;
@@ -158,12 +188,12 @@ h1 {
   
 }
 p{
-  text-align:justify;
+  text-align:center;
   max-width: 100%;
 }
 p1{
-  display: flex;
-  color: rgba(255,0,13,.6) ;
+  display: block;
+  color: rgba(255,0,13,.9) ;
   opacity:22% ;
   /* text-shadow:  rgb(0, 0, 0) 1px 0 10px; */
   /* text-shadow:  rgb(206, 171, 97,0.9) 1px 0 10px; */
@@ -173,7 +203,10 @@ p1{
   text-align: center;
   position: relative;
   height: 3 px;
+  z-index: 0;
+  margin-top: 10px;
   transform:rotateX(10%);
+  transition: 1s;
 }
 p12{
   opacity:35% ;
@@ -184,9 +217,18 @@ p12{
   text-align: center;
   position: relative;
   height: 3 px;
+  margin-bottom: 10px;
   transform: translate(-10px,-240px);
+  /* border-bottom: -20px; */
+  transition: 1.9s;
 }
-
+p1:hover{
+  text-shadow: rgba(2, 247, 255, 0.232) 0px 0px 5px;
+  
+}
+p12:hover{
+  text-shadow: rgba(4, 4, 255, 0.753) 0px 0px 5px;
+}
 p2{
   position: absolute;
   top: 60%;
@@ -202,17 +244,20 @@ h2 {}
 p { 
   margin:0;
   font-size: 1rem;
+  text-align:left;
 }
 
 
 .on:target{
-  display: block;
-  display:grid;
-  transform: translateY(60vh);
+  /* display:grid; */
+  /* transform: translateY(60vh); */
+  /transition: 0.5s;
 }
 .under:target{
-  display:grid;
-  transform: translateY(-60vh);
+  /* display:grid; */
+  /* transform: translateY(-60vh); */
+  /transition: 0,1s;
+  /transition-timing-function:cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
 }
 
 /* @keyframes move{
